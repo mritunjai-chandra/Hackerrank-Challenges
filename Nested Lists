@@ -1,0 +1,44 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(raw_input())
+marks = list()
+name = list()
+final = list() #defining empty list
+#storing the names and grades of students
+for i in range(n):
+    name.append(str(raw_input())) # making a list of marks.
+    marks.append(float(raw_input()))
+    final.append([name[i],marks[i]]) # appending names and grades to final list.
+    
+
+# finding and deleting min grade item.
+marks2 = list()
+val = min(marks)
+
+for i in range(len(marks)):
+    if (marks[i] != val):
+        marks2.append(marks[i])
+
+# finding new lowest grade
+new_val = min(marks2)
+
+# storing  new lowest grade.
+low_grade = list()
+for i in range(len(marks2)):
+    if marks2[i]== new_val:
+        low_grade.append(marks2[i])
+
+
+name = list()
+if (len(low_grade) == 1):
+    for i in range(len(final)):
+        if final[i][1] == low_grade[0]:
+            print final[i][0]               
+               
+else:
+    for i in range(len(final)):
+        if (final[i][1] == low_grade[0]):
+            name.append(final[i][0])
+    name.sort()
+    for i in name:
+        print i
+           
